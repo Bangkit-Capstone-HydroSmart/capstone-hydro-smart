@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.hydrosmart.databinding.FragmentDashboardBinding
+import com.example.hydrosmart.databinding.FragmentGuideBinding
 
 class GuideFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentGuideBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +24,8 @@ class GuideFragment : Fragment() {
         val guideViewModel =
             ViewModelProvider(this).get(GuideViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textDashboard
-        guideViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        _binding = FragmentGuideBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onDestroyView() {
