@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">HydroSmart</string>
+    <string name="item">item</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="Masuk_untuk_terhubung">Masuk ke akunmu untuk kembali terhubung</string>
+    <string name="Register_Here">Don\'t have account ? Register Here</string>
+    <string name="title_signup_page">Gabung untuk menikmati fitur lainnya</string>
+    <string name="name">Name</string>
+    <string name="signup">Sign Up</string>
+    <string name="Login_here">Already have account ? Login Here</string>
+    <string name="title_welcome_page">Welcome to HydroSmart</string>
+    <string name="welcome">Welcome !</string>
+    <string name="mau_menanam_apa_hari_ini">Mau menanam apa hari ini ?</string>
+    <string name="title_activity_main_after">MainActivityAfter</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
