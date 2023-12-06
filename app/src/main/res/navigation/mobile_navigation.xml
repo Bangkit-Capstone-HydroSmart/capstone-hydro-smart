@@ -12,12 +12,6 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_guide"
-        android:name="com.example.hydrosmart.afterlogin.ui.guide.GuideFragment"
-        android:label="@string/title_guide"
-        tools:layout="@layout/fragment_guide" />
-
-    <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.hydrosmart.afterlogin.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"

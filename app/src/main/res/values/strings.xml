@@ -26,4 +26,18 @@
     <string name="cancel_reminder_title_bt">Cancel Reminder</string>
     <string name="menu_detail_alat_bahan">Alat dan bahan</string>
     <string name="menu_detail_langkah">Langkah budidaya</string>
+    <string name="welcome_message_home">Hi, %1$s!</string>
+    <string name="welcome_message_plant">Mau menanam apa hari ini?</string>
+    <string name="bt_rekomendasi">Butuh Rekomendasi ?</string>
+    <string name="tv_menu_plant">Hydroponik Plant</string>
+    <string name="tv_title_recom">Rekomendasi</string>
+    <string name="tv_title_form">Isi form berikut</string>
+    <string name="tv_sub_title">Agar kami dapat memberikan rekomendasi tanaman hidroponik</string>
+    <string name="hint_suhu">suhu</string>
+    <string name="hint_luas">luas lahan</string>
+    <string name="hint_ph">ph</string>
+    <string name="hint_kelembapan">kelembapan</string>
+    <string name="hint_penyinaran">penyinaran</string>
+    <string name="bt_submit">Submit</string>
+    <string name="tv_result">Result :</string>
 </resources>

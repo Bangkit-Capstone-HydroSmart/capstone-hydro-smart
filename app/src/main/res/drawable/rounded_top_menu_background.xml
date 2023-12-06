@@ -4,5 +4,5 @@
     <corners
         android:topRightRadius="100dp"
         android:bottomRightRadius="100dp"/>
-    <solid android:color="@color/button_color"/>
+    <solid android:color="@color/md_theme_light_primaryContainer"/>
 </shape>
