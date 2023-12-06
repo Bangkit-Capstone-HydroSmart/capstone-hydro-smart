@@ -23,7 +23,7 @@
     <string name="title_profile">Profile</string>
     <string name="bt_edit_profile">Edit Profile</string>
     <string name="reminder_title_button">Reminder</string>
-    <string name="cancel_reminder_title_bt">Cancel Reminder</string>
+    <string name="cancel_reminder_title_bt">Cancel</string>
     <string name="menu_detail_alat_bahan">Alat dan bahan</string>
     <string name="menu_detail_langkah">Langkah budidaya</string>
     <string name="welcome_message_home">Hi, %1$s!</string>
@@ -40,4 +40,8 @@
     <string name="hint_penyinaran">penyinaran</string>
     <string name="bt_submit">Submit</string>
     <string name="tv_result">Result :</string>
+    <string name="text_alarm_set_up">Reminder alarm set up</string>
+    <string name="cancel_alarm">Reminder alarm dibatalkan</string>
+    <string name="alarm_message">pesan alarm</string>
+    <string name="tv_time_clock">Klik gambar jam diatas</string>
 </resources>

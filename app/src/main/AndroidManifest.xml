@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -20,8 +24,14 @@
             android:exported="false" />
         <activity
             android:name=".afterlogin.MainActivityAfter"
-            android:exported="false"
-            android:label="@string/title_activity_main_after" />
+            android:exported="true"
+            android:label="@string/title_activity_main_after" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".beforelogin.Detailitem"
             android:exported="false" />
@@ -36,13 +46,12 @@
             android:exported="false" />
         <activity
             android:name=".beforelogin.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <receiver
+            android:name=".afterlogin.ui.notifications.AlarmReceiver"
+            android:enabled="true"
+            android:exported="false"/>
 
         <meta-data
             android:name="preloaded_fonts"
