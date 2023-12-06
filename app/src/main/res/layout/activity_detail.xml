@@ -29,7 +29,6 @@
         android:elevation="8dp"
         android:fontFamily="@font/baloo"
         android:gravity="center_horizontal"
-        android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"

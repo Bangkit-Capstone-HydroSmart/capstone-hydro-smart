@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "425320321136",
+    "project_id": "hydrosmart1",
+    "storage_bucket": "hydrosmart1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425320321136:android:a6c15d4b33c51e096924b5",
+        "android_client_info": {
+          "package_name": "com.example.hydrosmart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIAdY9QY5bWZHt0MWhDkz691UaO5UcMIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
