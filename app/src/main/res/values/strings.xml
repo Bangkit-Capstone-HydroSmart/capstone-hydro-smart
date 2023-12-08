@@ -44,4 +44,9 @@
     <string name="cancel_alarm">Reminder alarm dibatalkan</string>
     <string name="alarm_message">pesan alarm</string>
     <string name="tv_time_clock">Klik gambar jam diatas</string>
+    <string name="HydroSmart">HydroSmart</string>
+    <string name="reinputpassword">Masukan ulang password</string>
+    <string name="username">Username</string>
+    <string name="join">Join</string>
+    <string name="masuk_gabung">Masuk atau Gabung untuk menikmati fitur lainnya !</string>
 </resources>
