@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hydrosmart.ViewModelFactory
 import com.example.hydrosmart.afterlogin.ui.detail.DetailActivity
+import com.example.hydrosmart.afterlogin.ui.rekomendasi.RecommendActivity
 import com.example.hydrosmart.data.adapter.PlantAdapter
 import com.example.hydrosmart.databinding.FragmentHomeBinding
 import com.example.hydrosmart.utils.ShowLoading
@@ -75,6 +76,11 @@ class HomeFragment : Fragment() {
             isLoading.observe(requireActivity()) {
                 showLoading.showLoading(it, binding.progressBar)
             }
+        }
+
+        binding.btRekomendasi.setOnClickListener {
+            val toRecomActivity = Intent(requireContext(), RecommendActivity::class.java)
+            startActivity(toRecomActivity)
         }
     }
 
