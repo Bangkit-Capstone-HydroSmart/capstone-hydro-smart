@@ -49,4 +49,6 @@
     <string name="username">Username</string>
     <string name="join">Join</string>
     <string name="masuk_gabung">Masuk atau Gabung untuk menikmati fitur lainnya !</string>
+    <string name="empty_field">Tolong isi formnya dulu</string>
+    <string name="invalid_field">Invalid input. Please enter valid numbers.</string>
 </resources>
