@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".beforelogin.Detailitem"
+            android:name=".beforelogin.ui.detailbefore.Detailitem"
             android:exported="false" />
         <activity
             android:name=".beforelogin.welcome"
