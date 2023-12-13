@@ -13,12 +13,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.example.hydrosmart.R
 import com.example.hydrosmart.ViewModelFactory
 import com.example.hydrosmart.afterlogin.ui.detail.DetailActivity
-import com.example.hydrosmart.afterlogin.ui.home.HomeViewModel
 import com.example.hydrosmart.auth.login.LoginActivity
+import com.example.hydrosmart.beforelogin.ui.detailbefore.MainActivityViewModel
 import com.example.hydrosmart.data.adapter.PlantAdapter
 import com.example.hydrosmart.data.pref.UserPreference
 import com.example.hydrosmart.databinding.ActivityMainBinding
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private val binding get() = _binding!!
     private lateinit var showLoading: ShowLoading
-    private val mainActivityViewModel by viewModels<HomeViewModel> {
+    private val mainActivityViewModel by viewModels<MainActivityViewModel> {
         ViewModelFactory(UserPreference.getInstance(dataStore), this)
     }
 
@@ -60,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getPlants(){
         lifecycleScope.launch {
-            mainActivityViewModel.getPlants()
+            mainActivityViewModel.getPlant()
         }
     }
 
