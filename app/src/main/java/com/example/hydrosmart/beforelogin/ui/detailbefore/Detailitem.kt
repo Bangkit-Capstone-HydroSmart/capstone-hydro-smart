@@ -27,6 +27,8 @@ class Detailitem : AppCompatActivity() {
         setContentView(binding.root)
 
         showLoading = ShowLoading()
+        getDetailPlant()
+        setUpAction()
 
     }
 
@@ -55,7 +57,7 @@ class Detailitem : AppCompatActivity() {
     private fun setDataPlant(it: PlantResponse{
         binding.apply {
             tvDetailTitle.text = it.tanaman.toString()
-            tvAlat
+            tvAlatBahan
         }
     }
 
