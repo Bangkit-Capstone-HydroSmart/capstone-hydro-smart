@@ -54,7 +54,7 @@ class Detailitem : AppCompatActivity() {
         }
     }
 
-    private fun setDataPlant(it: PlantResponse{
+    private fun setDataPlant(it: PlantResponse){
         binding.apply {
             tvDetailTitle.text = it.tanaman.toString()
             tvAlatBahan
