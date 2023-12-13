@@ -94,11 +94,13 @@
 
     <Button
         android:id="@+id/bt_rekomendasi"
+        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/baloo"
+        android:elevation="8dp"
         android:textSize="20sp"
         android:text="@string/bt_rekomendasi"
         app:layout_constraintStart_toStartOf="@+id/card_view"

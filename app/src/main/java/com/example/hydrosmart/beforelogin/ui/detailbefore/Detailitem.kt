@@ -1,24 +1,30 @@
 package com.example.hydrosmart.beforelogin.ui.detailbefore
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.lifecycleScope
 import com.example.hydrosmart.R
 import com.example.hydrosmart.ViewModelFactory
-import com.example.hydrosmart.afterlogin.ui.detail.DetailViewModel
 import com.example.hydrosmart.data.networking.PlantResponse
-import com.example.hydrosmart.databinding.ActivityDetailBinding
+import com.example.hydrosmart.data.pref.UserPreference
 import com.example.hydrosmart.databinding.ActivityDetailitemBinding
 import com.example.hydrosmart.utils.ShowLoading
 import kotlinx.coroutines.launch
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class Detailitem : AppCompatActivity() {
     private lateinit var binding: ActivityDetailitemBinding
     private lateinit var showLoading: ShowLoading
     private val detailbeforeViewModel by viewModels<DetailbeforeViewModel> {
-        ViewModelFactory(this)
+        ViewModelFactory(UserPreference.getInstance(dataStore), this)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -32,36 +38,36 @@ class Detailitem : AppCompatActivity() {
 
     }
 
-    private fun getDetailPlant(){
+    private fun getDetailPlant() {
         val plantName = intent.getStringExtra(PLANTS)
         lifecycleScope.launch {
             plantName?.let { detailbeforeViewModel.getPlantDetail(it) }
         }
     }
 
-    private fun setUpAction(){
+    private fun setUpAction() {
         detailbeforeViewModel.apply {
-            detailPlant.observe(this@Detailitem){
+            detailPlant.observe(this@Detailitem) {
                 setDataPlant(it)
             }
 
             isLoading.observe(this@Detailitem) {
-                showLoading.showLoading(it, binding.progressBar )
+                showLoading.showLoading(it, binding.progressBar)
             }
         }
-        binding.fbBack.setOnClickListener{
+        binding.fbBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
     }
 
-    private fun setDataPlant(it: PlantResponse){
+    private fun setDataPlant(it: PlantResponse) {
         binding.apply {
             tvDetailTitle.text = it.tanaman.toString()
             tvAlatBahan
         }
     }
 
-    companion object{
+    companion object {
         const val PLANTS = "PLANTS"
     }
 }

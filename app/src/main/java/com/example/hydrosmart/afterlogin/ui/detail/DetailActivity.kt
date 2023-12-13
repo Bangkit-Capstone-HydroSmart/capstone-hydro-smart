@@ -1,20 +1,27 @@
 package com.example.hydrosmart.afterlogin.ui.detail
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.lifecycleScope
 import com.example.hydrosmart.ViewModelFactory
 import com.example.hydrosmart.data.networking.PlantResponse
+import com.example.hydrosmart.data.pref.UserPreference
 import com.example.hydrosmart.databinding.ActivityDetailBinding
 import com.example.hydrosmart.utils.ShowLoading
 import kotlinx.coroutines.launch
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
     private lateinit var showLoading: ShowLoading
     private val detailViewModel by viewModels<DetailViewModel> {
-        ViewModelFactory(this)
+        ViewModelFactory(UserPreference.getInstance(dataStore), this)
     }
 
 

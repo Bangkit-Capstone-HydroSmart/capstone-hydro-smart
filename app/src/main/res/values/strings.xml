@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">HydroSmart</string>
-    <string name="item">item</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
@@ -44,11 +43,49 @@
     <string name="cancel_alarm">Reminder alarm dibatalkan</string>
     <string name="alarm_message">pesan alarm</string>
     <string name="tv_time_clock">Klik gambar jam diatas</string>
-    <string name="HydroSmart">HydroSmart</string>
+    <string name="HydroSmart">Hydro Smart</string>
     <string name="reinputpassword">Masukan ulang password</string>
     <string name="username">Username</string>
     <string name="join">Join</string>
     <string name="masuk_gabung">Masuk atau Gabung untuk menikmati fitur lainnya !</string>
     <string name="empty_field">Tolong isi formnya dulu</string>
     <string name="invalid_field">Invalid input. Please enter valid numbers.</string>
+    <string name="password_confirm">Masukkan kembali password</string>
+    <string name="title_login_page">Masuk ke akunmu untuk kembali terhubung!</string>
+    <string name="signup_here">Belum Memiliki Akun? Sign Up</string>
+    <string name="loading">Loading</string>
+    <string name="title_alert_dialog">Success</string>
+    <string name="message_alert_dialog">Akun telah berhasil dibuat!</string>
+    <string name="message_positive_button">next</string>
+    <string name="invalid_email_type">Format email tidak Valid</string>
+    <string name="valid_password">Password harus minimal 6 huruf atau angka</string>
+    <string name="invalid_password_matches">Password tidak sama</string>
+    <string name="format_validation">Tolong isi sesuai format</string>
+    <string name="message_alert_dialog_login">Login berhasil!</string>
+
+    <!-- Night Mode Preferences -->
+    <string name="pref_dark_title">Dark mode</string>
+    <string name="pref_key_dark" translatable="false">key_dark_mode</string>
+    <string name="pref_dark_follow_system" translatable="false">follow_system</string>
+    <string name="pref_dark_on" translatable="false">on</string>
+    <string name="pref_dark_off" translatable="false">off</string>
+    <string name="dark_mode_auto">Automatic</string>
+    <string name="dark_mode_on">Dark mode</string>
+    <string name="dark_mode_off">Light mode</string>
+    <string name="logout">Logout</string>
+    <string name="item">Item</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="failed_to_save_user">Gagal menyimpan data</string>
+    <string name="empty_media">No media selected</string>
+    <string name="permission_already_granted">Permission already granted</string>
+    <string name="permission_denied">Permission denied</string>
+    <string name="dialog_title">Pilih Gambar</string>
+    <string name="dialog_message">Silahkan pilih dari mana anda ingin mengambil data</string>
+    <string name="camera">Camera</string>
+    <string name="galery">Galery</string>
+    <string name="dialog_title_logout">Apakah Anda Yakin?</string>
+    <string name="dialog_message_logout">Apakah anda yakin untuk logout?</string>
+    <string name="positive_bt_text">Yakin</string>
+    <string name="negative_bt_text">Tidak</string>
+    <string name="batal_logout_text">Batal Logout</string>
 </resources>

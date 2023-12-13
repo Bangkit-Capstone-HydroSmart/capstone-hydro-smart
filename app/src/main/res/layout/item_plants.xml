@@ -24,6 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:gravity="center"
             android:padding="10dp"
+            android:textColor="@color/black"
             android:text="@string/item"
             android:fontFamily="@font/baloo"
             android:textSize="25sp"
