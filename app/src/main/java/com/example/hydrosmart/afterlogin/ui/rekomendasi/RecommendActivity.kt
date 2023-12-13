@@ -1,10 +1,14 @@
 package com.example.hydrosmart.afterlogin.ui.rekomendasi
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hydrosmart.R
@@ -12,15 +16,18 @@ import com.example.hydrosmart.ViewModelFactory
 import com.example.hydrosmart.afterlogin.ui.detail.DetailActivity
 import com.example.hydrosmart.data.MyRequest
 import com.example.hydrosmart.data.adapter.PlantAdapter
+import com.example.hydrosmart.data.pref.UserPreference
 import com.example.hydrosmart.databinding.ActivityRecommendBinding
 import com.example.hydrosmart.utils.ShowLoading
 import kotlinx.coroutines.launch
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class RecommendActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecommendBinding
     private lateinit var showLoading: ShowLoading
     private val recommendViewModel by viewModels<RecommendViewModel> {
-        ViewModelFactory(this)
+        ViewModelFactory(UserPreference.getInstance(dataStore), this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
