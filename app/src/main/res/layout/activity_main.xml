@@ -94,7 +94,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <Button
-        android:id="@+id/bt_welcome"
+        android:id="@+id/btJoin"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -107,7 +107,7 @@
         android:drawableEnd="@drawable/baseline_login_24"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_story"
+        android:id="@+id/rvListPlant"
         tools:listitem="@layout/item_plants"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -135,7 +135,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:gravity="center"
         app:drawableTopCompat="@drawable/baseline_warning_24" />
 
@@ -152,5 +152,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="610dp" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

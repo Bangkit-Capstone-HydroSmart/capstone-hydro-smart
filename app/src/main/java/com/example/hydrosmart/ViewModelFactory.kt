@@ -9,6 +9,7 @@ import com.example.hydrosmart.afterlogin.ui.profile.ProfileViewModel
 import com.example.hydrosmart.afterlogin.ui.rekomendasi.RecommendViewModel
 import com.example.hydrosmart.auth.login.LoginViewModel
 import com.example.hydrosmart.beforelogin.ui.detailbefore.DetailbeforeViewModel
+import com.example.hydrosmart.beforelogin.ui.detailbefore.MainActivityViewModel
 import com.example.hydrosmart.data.pref.UserPreference
 import com.example.hydrosmart.utils.di.Injection
 
@@ -42,6 +43,10 @@ class ViewModelFactory(
 
             modelClass.isAssignableFrom(DetailbeforeViewModel::class.java) -> {
                 DetailbeforeViewModel(Injection.provideRepository(context)) as T
+            }
+
+            modelClass.isAssignableFrom(MainActivityViewModel::class.java) -> {
+                MainActivityViewModel(Injection.provideRepository(context)) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
