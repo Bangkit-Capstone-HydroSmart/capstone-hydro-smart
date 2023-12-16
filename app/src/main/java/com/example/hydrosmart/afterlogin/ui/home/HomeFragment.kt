@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hydrosmart.R
 import com.example.hydrosmart.ViewModelFactory
+import com.example.hydrosmart.afterlogin.ui.calculator.CalculateActivity
 import com.example.hydrosmart.afterlogin.ui.detail.DetailActivity
 import com.example.hydrosmart.afterlogin.ui.rekomendasi.RecommendActivity
 import com.example.hydrosmart.beforelogin.MainActivity
@@ -49,11 +50,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         showLoading = ShowLoading()
 
@@ -61,6 +57,8 @@ class HomeFragment : Fragment() {
         setUpAction()
         showRecycleView()
         action()
+
+        return binding.root
     }
 
     private fun showRecycleView() {
@@ -90,9 +88,16 @@ class HomeFragment : Fragment() {
             }
         }
 
-        binding.btRekomendasi.setOnClickListener {
-            val toRecomActivity = Intent(requireContext(), RecommendActivity::class.java)
-            startActivity(toRecomActivity)
+        binding.apply {
+            btRekomendasi.setOnClickListener {
+                val toRecomActivity = Intent(requireContext(), RecommendActivity::class.java)
+                startActivity(toRecomActivity)
+            }
+
+            fbCalculate.setOnClickListener {
+                val toCalculateActivity = Intent(requireContext(), CalculateActivity::class.java)
+                startActivity(toCalculateActivity)
+            }
         }
     }
 

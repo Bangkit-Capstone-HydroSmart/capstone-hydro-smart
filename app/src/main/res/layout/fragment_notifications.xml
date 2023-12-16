@@ -82,6 +82,7 @@
 
     <Button
         android:id="@+id/bt_reminder"
+        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -90,14 +91,17 @@
         android:fontFamily="@font/baloo"
         android:text="@string/reminder_title_button"
         android:textSize="16sp"
+        android:elevation="8dp"
         android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bt_cancel"
-        app:layout_constraintTop_toBottomOf="@+id/edt_repeating_message" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_repeating_message"
+        tools:enabled="true"/>
 
     <Button
         android:id="@+id/bt_cancel"
+        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -105,6 +109,7 @@
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/baloo"
         android:text="@string/cancel_reminder_title_bt"
+        android:elevation="8dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/bt_reminder"
         app:layout_constraintHorizontal_bias="0.5"

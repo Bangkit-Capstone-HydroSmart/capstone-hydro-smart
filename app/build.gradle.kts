@@ -23,7 +23,7 @@ android {
 
         android.buildFeatures.buildConfig = true
 
-        buildConfigField("String", "BASE_URL", "\"https://hydrosmartcc-b2gk2ctkwq-et.a.run.app/\"")
+        buildConfigField("String", "BASE_URL", "\"https://hydrosmart-7iupcml5qq-et.a.run.app/\"")
     }
 
     buildTypes {

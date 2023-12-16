@@ -80,8 +80,10 @@ class ProfileFragment : Fragment() {
             )
             setData()
         } else {
-            Toast.makeText(requireContext(),
-                getString(R.string.permission_already_granted), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.permission_already_granted), Toast.LENGTH_SHORT
+            ).show()
             setData()
         }
     }
@@ -101,8 +103,10 @@ class ProfileFragment : Fragment() {
                 setData()
             } else {
                 // Permission denied, show an error message to the user
-                Toast.makeText(requireContext(),
-                    getString(R.string.permission_denied), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.permission_denied), Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -120,7 +124,8 @@ class ProfileFragment : Fragment() {
                         }
                 }
                 tvEmail.text = it.email.toString()
-                Glide.with(requireContext()).load(it.image?.toUri()).error(R.drawable.profile_user_default).into(binding.imgProfile)
+                Glide.with(requireContext()).load(it.image?.toUri())
+                    .error(R.drawable.profile_user_default).into(binding.imgProfile)
             }
         }
 
@@ -149,7 +154,8 @@ class ProfileFragment : Fragment() {
             currentImageUri = uri
             showImage()
         } else {
-            Toast.makeText(requireContext(), getString(R.string.empty_media), Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.empty_media), Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
@@ -192,8 +198,10 @@ class ProfileFragment : Fragment() {
                     requireActivity().finish()
                 }
                 setNegativeButton(getString(R.string.negative_bt_text)) { _, _ ->
-                    Toast.makeText(requireContext(),
-                        getString(R.string.batal_logout_text), Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.batal_logout_text), Toast.LENGTH_LONG
+                    ).show()
                 }
             }.show()
         }

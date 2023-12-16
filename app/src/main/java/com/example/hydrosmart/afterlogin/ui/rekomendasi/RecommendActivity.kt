@@ -11,6 +11,8 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.basgeekball.awesomevalidation.AwesomeValidation
+import com.basgeekball.awesomevalidation.ValidationStyle
 import com.example.hydrosmart.R
 import com.example.hydrosmart.ViewModelFactory
 import com.example.hydrosmart.afterlogin.ui.detail.DetailActivity
@@ -19,6 +21,7 @@ import com.example.hydrosmart.data.adapter.PlantAdapter
 import com.example.hydrosmart.data.pref.UserPreference
 import com.example.hydrosmart.databinding.ActivityRecommendBinding
 import com.example.hydrosmart.utils.ShowLoading
+import com.google.common.collect.Range
 import kotlinx.coroutines.launch
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
@@ -68,6 +71,35 @@ class RecommendActivity : AppCompatActivity() {
     }
 
     private fun getPredictPlant() {
+        val validation = AwesomeValidation(ValidationStyle.BASIC)
+        validation.apply {
+            addValidation(
+                binding.suhuEditText,
+                Range.closed(5, 30),
+                getString(R.string.error_message_suhu)
+            )
+            addValidation(
+                binding.luasEditText,
+                Range.atLeast(0.05),
+                getString(R.string.error_message_luas)
+            )
+            addValidation(
+                binding.phEditText,
+                Range.closed(0, 14),
+                getString(R.string.error_message_ph)
+            )
+            addValidation(
+                binding.kelembapanEditText,
+                Range.closed(40, 80),
+                getString(R.string.error_message_kelembapan)
+            )
+            addValidation(
+                binding.penyinaranEditText,
+                Range.closed(6, 18),
+                getString(R.string.error_message_penyinaran)
+            )
+        }
+
         binding.btSubmit.setOnClickListener {
             val suhu = binding.suhuEditText.text.toString()
             val luasLahan = binding.luasEditText.text.toString()
@@ -75,26 +107,34 @@ class RecommendActivity : AppCompatActivity() {
             val kelembapan = binding.kelembapanEditText.text.toString()
             val penyinaran = binding.penyinaranEditText.text.toString()
 
-            if (suhu.isNotEmpty() && luasLahan.isNotEmpty() && ph.isNotEmpty() && kelembapan.isNotEmpty() && penyinaran.isNotEmpty()) {
-                try {
-                    val request = MyRequest(
-                        suhu_pengguna = suhu.toInt(),
-                        luas_lahan_pengguna = luasLahan.toInt(),
-                        ph_pengguna = ph.toInt(),
-                        kelembapan_pengguna = kelembapan.toInt(),
-                        penyinaran_pengguna = penyinaran.toInt()
-                    )
+            if (validation.validate()) {
+                if (suhu.isNotEmpty() && luasLahan.isNotEmpty() && ph.isNotEmpty() && kelembapan.isNotEmpty() && penyinaran.isNotEmpty()) {
+                    try {
+                        val request = MyRequest(
+                            suhu_pengguna = suhu.toInt(),
+                            luas_lahan_pengguna = luasLahan.toDouble(),
+                            ph_pengguna = ph.toInt(),
+                            kelembapan_pengguna = kelembapan.toInt(),
+                            penyinaran_pengguna = penyinaran.toInt()
+                        )
 
-                    lifecycleScope.launch {
-                        recommendViewModel.getPredictPlant(request)
+                        lifecycleScope.launch {
+                            recommendViewModel.getPredictPlant(request)
+                        }
+
+                    } catch (e: NumberFormatException) {
+                        Toast.makeText(this, getString(R.string.invalid_field), Toast.LENGTH_LONG)
+                            .show()
                     }
-
-                } catch (e: NumberFormatException) {
-                    Toast.makeText(this, getString(R.string.invalid_field), Toast.LENGTH_LONG)
-                        .show()
+                } else {
+                    Toast.makeText(this, getString(R.string.empty_field), Toast.LENGTH_LONG).show()
                 }
             } else {
-                Toast.makeText(this, getString(R.string.empty_field), Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.format_validation),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

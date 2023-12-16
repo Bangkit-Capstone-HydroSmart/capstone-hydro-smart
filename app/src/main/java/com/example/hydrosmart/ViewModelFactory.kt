@@ -3,6 +3,7 @@ package com.example.hydrosmart
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.hydrosmart.afterlogin.ui.calculator.CalculateViewModel
 import com.example.hydrosmart.afterlogin.ui.detail.DetailViewModel
 import com.example.hydrosmart.afterlogin.ui.home.HomeViewModel
 import com.example.hydrosmart.afterlogin.ui.profile.ProfileViewModel
@@ -47,6 +48,10 @@ class ViewModelFactory(
 
             modelClass.isAssignableFrom(MainActivityViewModel::class.java) -> {
                 MainActivityViewModel(Injection.provideRepository(context)) as T
+            }
+
+            modelClass.isAssignableFrom(CalculateViewModel::class.java) -> {
+                CalculateViewModel(Injection.provideRepository(context)) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

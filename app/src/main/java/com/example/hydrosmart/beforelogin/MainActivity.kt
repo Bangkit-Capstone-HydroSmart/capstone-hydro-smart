@@ -13,10 +13,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hydrosmart.R
 import com.example.hydrosmart.ViewModelFactory
 import com.example.hydrosmart.afterlogin.ui.detail.DetailActivity
-import com.example.hydrosmart.auth.login.LoginActivity
 import com.example.hydrosmart.beforelogin.ui.detailbefore.MainActivityViewModel
 import com.example.hydrosmart.data.adapter.PlantAdapter
 import com.example.hydrosmart.data.pref.UserPreference
@@ -26,9 +24,7 @@ import kotlinx.coroutines.launch
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 class MainActivity : AppCompatActivity() {
-    private var _binding : ActivityMainBinding? = null
-
-    private val binding get() = _binding!!
+    private lateinit var binding: ActivityMainBinding
     private lateinit var showLoading: ShowLoading
     private val mainActivityViewModel by viewModels<MainActivityViewModel> {
         ViewModelFactory(UserPreference.getInstance(dataStore), this)
@@ -36,9 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        _binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         showLoading = ShowLoading()
@@ -77,8 +71,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btJoin.setOnClickListener{
-            val toLogin = Intent(this@MainActivity, LoginActivity::class.java)
-            startActivity(toLogin)
+            val toWelcome = Intent(this@MainActivity, Welcome::class.java)
+            startActivity(toWelcome)
         }
     }
 
@@ -91,8 +85,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
 }

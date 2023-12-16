@@ -16,6 +16,7 @@ import com.basgeekball.awesomevalidation.ValidationStyle
 import com.example.hydrosmart.R
 import com.example.hydrosmart.ViewModelFactory
 import com.example.hydrosmart.afterlogin.MainActivityAfter
+import com.example.hydrosmart.auth.signup.Signup
 import com.example.hydrosmart.data.pref.UserModel
 import com.example.hydrosmart.data.pref.UserPreference
 import com.example.hydrosmart.databinding.ActivityLoginBinding
@@ -102,6 +103,10 @@ class LoginActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show()
             }
+        }
+
+        binding.tvRegisterHere.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, Signup::class.java))
         }
     }
 

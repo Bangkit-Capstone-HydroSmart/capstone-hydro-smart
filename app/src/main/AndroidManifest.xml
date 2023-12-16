@@ -14,6 +14,7 @@
         android:maxSdkVersion="28" />
 
     <application
+        android:name=".HydroSmartApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -23,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HydroSmart"
         tools:targetApi="31">
+        <activity
+            android:name=".afterlogin.ui.calculator.CalculateActivity"
+            android:exported="false" />
         <activity
             android:name=".afterlogin.MainActivityAfter"
             android:exported="false" />
@@ -46,7 +50,7 @@
             android:name=".beforelogin.ui.detailbefore.Detailitem"
             android:exported="false" />
         <activity
-            android:name=".beforelogin.welcome"
+            android:name=".beforelogin.Welcome"
             android:exported="false" />
         <activity
             android:name=".auth.signup.Signup"
