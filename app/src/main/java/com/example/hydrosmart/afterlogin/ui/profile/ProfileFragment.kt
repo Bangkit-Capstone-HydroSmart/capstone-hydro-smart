@@ -119,8 +119,9 @@ class ProfileFragment : Fragment() {
                 uid?.let { uid ->
                     FirebaseDatabase.getInstance().reference.child("users").child(uid).get()
                         .addOnCompleteListener {
-                            tvName.text = it.result.child("name").value.toString()
-
+                            if (isAdded) {
+                                tvName.text = it.result.child("name").value.toString()
+                            }
                         }
                 }
                 tvEmail.text = it.email.toString()

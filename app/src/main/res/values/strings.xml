@@ -98,15 +98,16 @@
     <string name="error_message_penyinaran">Penyinaran harus berada dalam rentang 6 - 18</string>
     <string name="title_calculate_page">Kalkulator Nutrisi</string>
     <string name="tv_title_calculator_PPM">Kalkulator PPM</string>
-    <string name="tv_sub_title_PPM">Menghitung nutrisi yand dibutuhkan tanaman berdasarkan Part Per Million</string>
+    <string name="tv_sub_title_PPM">Menghitung nutrisi yang dibutuhkan tanaman berdasarkan Part Per Million</string>
     <string name="hint_mass">mass solute mg</string>
     <string name="hint_volume">volume solution liters</string>
     <string name="tv_message_PPM">Anda membutuhkan PPM sebesar :</string>
     <string name="tv_title_calculator_Mass">Kalkulator Mass</string>
-    <string name="tv_sub_title_Mass">Menghitung nutrisi yand dibutuhkan tanaman berdasarkan satuan Massa</string>
+    <string name="tv_sub_title_Mass">Menghitung nutrisi yang dibutuhkan tanaman berdasarkan satuan Massa</string>
     <string name="hint_ppm">ppm</string>
     <string name="tv_message_mass">Anda membutuhkan nutrisi Massa sebesar :</string>
     <string name="tv_title_calculator_Volume">Kalkulator Volume</string>
-    <string name="tv_sub_title_Volume">Menghitung nutrisi yand dibutuhkan tanaman per Volume</string>
+    <string name="tv_sub_title_Volume">Menghitung nutrisi yang dibutuhkan tanaman per Volume</string>
     <string name="tv_message_volume">Anda membutuhkan nutrisi dengan volume sebesar :</string>
+    <string name="empty_string_alat_bahan">Tunggu update patch selanjutnya, untuk tanaman yang lebih banyak</string>
 </resources>

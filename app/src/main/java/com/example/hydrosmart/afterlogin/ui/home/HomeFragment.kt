@@ -118,10 +118,12 @@ class HomeFragment : Fragment() {
                 uid?.let { uid ->
                     FirebaseDatabase.getInstance().reference.child("users").child(uid).get()
                         .addOnCompleteListener {
-                            binding.tvWelcome.text = getString(
-                                R.string.welcome_message_home,
-                                it.result.child("name").value.toString()
-                            )
+                            if (isAdded) {
+                                binding.tvWelcome.text = getString(
+                                    R.string.welcome_message_home,
+                                    it.result.child("name").value.toString()
+                                )
+                            }
                         }
                 }
             } else {

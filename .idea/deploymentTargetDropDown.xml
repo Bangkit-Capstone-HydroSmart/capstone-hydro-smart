@@ -2,7 +2,22 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="HomeFragmentTest">
+        <State />
+      </entry>
+      <entry key="LoginActivityTest">
+        <State />
+      </entry>
+      <entry key="MainActivityAfterTest">
+        <State />
+      </entry>
+      <entry key="WelcomeTest">
+        <State />
+      </entry>
       <entry key="app">
+        <State />
+      </entry>
+      <entry key="testLoginLogoutScenario() (1)">
         <State />
       </entry>
     </value>
