@@ -41,7 +41,7 @@ class Detailitem : AppCompatActivity() {
     private fun getDetailPlant() {
         val plantName = intent.getStringExtra(PLANTS)
         lifecycleScope.launch {
-            plantName?.let { detailbeforeViewModel.getPlantDetail(it) }
+            plantName?.let { detailbeforeViewModel.getPlantDetail(it, this@Detailitem) }
         }
     }
 

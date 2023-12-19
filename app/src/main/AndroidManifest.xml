@@ -30,7 +30,9 @@
             android:exported="false" />
         <activity
             android:name=".afterlogin.MainActivityAfter"
-            android:exported="false" />
+            android:screenOrientation="portrait"
+            android:exported="false"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".afterlogin.ui.rekomendasi.RecommendActivity"
             android:exported="false" />

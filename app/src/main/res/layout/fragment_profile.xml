@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,9 +31,8 @@
             android:elevation="4dp"
             android:fontFamily="@font/baloo"
             android:text="@string/title_profile"
-            android:textColor="@color/black"
             android:textSize="30sp"
-            app:drawableStartCompat="@drawable/profile_user_icon"
+            app:drawableStartCompat="@drawable/baseline_person_24"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintStart_toStartOf="@+id/view"
@@ -89,7 +89,7 @@
         <View
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/card_bg_light_mode"
+            android:background="@drawable/card_bg"
             android:elevation="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/img_add_photo"
             app:layout_constraintEnd_toEndOf="@+id/img_add_photo"
@@ -110,20 +110,6 @@
             app:layout_constraintTop_toTopOf="@+id/img_profile"
             app:layout_constraintVertical_bias="1.0" />
 
-        <View
-            android:id="@+id/view5"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/card_bg_light_mode"
-            android:elevation="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline6" />
-
         <FrameLayout
             android:id="@+id/settings"
             android:layout_width="0dp"
@@ -139,37 +125,30 @@
             style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginEnd="16dp"
             android:elevation="9dp"
             android:fontFamily="@font/baloo"
             android:text="@string/logout"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/view5"
-            app:layout_constraintStart_toStartOf="@+id/view5"
-            app:layout_constraintTop_toTopOf="@+id/view5" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="88dp" />
+            app:layout_constraintGuide_begin="60dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="449dp" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="731dp" />
+            app:layout_constraintGuide_begin="417dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

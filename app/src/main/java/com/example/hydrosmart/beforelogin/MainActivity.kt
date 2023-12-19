@@ -56,7 +56,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun getPlants(){
         lifecycleScope.launch {
-            mainActivityViewModel.getPlant()
+            mainActivityViewModel.getPlant(this@MainActivity) {
+                binding.swipeRefresh.isRefreshing = true
+                lifecycleScope.launch {
+                    mainActivityViewModel.getPlant(this@MainActivity) {
+                        binding.swipeRefresh.isRefreshing = false
+                    }
+                }
+            }
         }
     }
 

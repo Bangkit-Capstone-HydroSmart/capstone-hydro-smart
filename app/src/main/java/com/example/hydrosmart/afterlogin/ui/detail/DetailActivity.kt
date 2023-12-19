@@ -39,7 +39,7 @@ class DetailActivity : AppCompatActivity() {
     private fun getDetailPlant() {
         val plantName = intent.getStringExtra(PLANTS)
         lifecycleScope.launch {
-            plantName?.let { detailViewModel.getPlantDetail(it) }
+            plantName?.let { detailViewModel.getPlantDetail(it, this@DetailActivity) }
         }
     }
 

@@ -35,7 +35,6 @@
             android:fontFamily="@font/baloo"
             android:gravity="center_horizontal"
             android:text="@string/title_calculate_page"
-            android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toEndOf="@+id/view"
@@ -61,7 +60,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/card_bg_light_mode"
+            android:background="@drawable/card_bg"
             android:elevation="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_result_ppm_value"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +76,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo"
             android:text="@string/tv_title_calculator_PPM"
-            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toTopOf="@+id/view2" />
@@ -91,7 +89,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo_bhai_2_semibold"
             android:text="@string/tv_sub_title_PPM"
-            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
@@ -106,8 +103,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:elevation="8dp"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/tv_message_ppm">
@@ -120,7 +115,6 @@
                 android:fontFamily="@font/baloo_bhai_2_semibold"
                 android:hint="@string/hint_mass"
                 android:inputType="numberDecimal"
-                android:textColor="@color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,8 +126,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:elevation="8dp"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/massEditTextLayout">
@@ -146,7 +138,6 @@
                 android:fontFamily="@font/baloo_bhai_2_semibold"
                 android:hint="@string/hint_volume"
                 android:inputType="numberDecimal"
-                android:textColor="@color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -175,7 +166,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo"
             android:text="@string/tv_result"
-            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/bt_submit_ppm" />
@@ -189,7 +179,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo_bhai_2_semibold"
             android:text="@string/tv_message_PPM"
-            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
@@ -205,7 +194,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo"
             android:gravity="center"
-            android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
@@ -218,7 +206,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/card_bg_light_mode"
+            android:background="@drawable/card_bg"
             android:elevation="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_result_mass_value"
             app:layout_constraintEnd_toEndOf="parent"
@@ -234,7 +222,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo"
             android:text="@string/tv_title_calculator_Mass"
-            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/guideline5" />
@@ -248,7 +235,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo_bhai_2_semibold"
             android:text="@string/tv_sub_title_Mass"
-            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
@@ -263,8 +249,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:elevation="8dp"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/tv_message_mass">
@@ -277,7 +261,6 @@
                 android:fontFamily="@font/baloo_bhai_2_semibold"
                 android:hint="@string/hint_ppm"
                 android:inputType="numberDecimal"
-                android:textColor="@color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -289,8 +272,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:elevation="8dp"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/ppmEditTextLayout">
@@ -332,7 +313,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo"
             android:text="@string/tv_result"
-            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/bt_submit_mass" />
@@ -346,7 +326,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo_bhai_2_semibold"
             android:text="@string/tv_message_mass"
-            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
@@ -362,7 +341,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo"
             android:gravity="center"
-            android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
@@ -375,7 +353,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/card_bg_light_mode"
+            android:background="@drawable/card_bg"
             android:elevation="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_result_volume_value"
             app:layout_constraintEnd_toEndOf="parent"
@@ -391,7 +369,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo"
             android:text="@string/tv_title_calculator_Volume"
-            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/guideline8" />
@@ -405,7 +382,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo_bhai_2_semibold"
             android:text="@string/tv_sub_title_Volume"
-            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
@@ -420,8 +396,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:elevation="8dp"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/tv_message_volume">
@@ -434,7 +408,6 @@
                 android:fontFamily="@font/baloo_bhai_2_semibold"
                 android:hint="@string/hint_mass"
                 android:inputType="numberDecimal"
-                android:textColor="@color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -446,8 +419,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:elevation="8dp"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/massVolumeEditTextLayout">
@@ -460,7 +431,6 @@
                 android:fontFamily="@font/baloo_bhai_2_semibold"
                 android:hint="@string/hint_ppm"
                 android:inputType="numberDecimal"
-                android:textColor="@color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -489,7 +459,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo"
             android:text="@string/tv_result"
-            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/bt_submit_volume" />
@@ -503,7 +472,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo_bhai_2_semibold"
             android:text="@string/tv_message_volume"
-            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
@@ -519,7 +487,6 @@
             android:elevation="8dp"
             android:fontFamily="@font/baloo"
             android:gravity="center"
-            android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"

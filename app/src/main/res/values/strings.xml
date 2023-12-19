@@ -32,10 +32,10 @@
     <string name="tv_title_recom">Rekomendasi</string>
     <string name="tv_title_form">Isi form berikut</string>
     <string name="tv_sub_title">Agar kami dapat memberikan rekomendasi tanaman hidroponik</string>
-    <string name="hint_luas">luas lahan => 0.05</string>
-    <string name="hint_ph"><![CDATA[0 => ph <= 14]]></string>
-    <string name="hint_kelembapan"><![CDATA[40 => kelembapan <= 80]]></string>
-    <string name="hint_penyinaran"><![CDATA[6 => penyinaran <= 18]]></string>
+    <string name="hint_luas">luas lahan => 0.05 (m)</string>
+    <string name="hint_ph">ph kisaran 0 – 14</string>
+    <string name="hint_kelembapan">kelembapan kisaran 40 – 80 (%)</string>
+    <string name="hint_penyinaran">penyinaran kisaran 6 – 18 (jam)</string>
     <string name="bt_submit">Submit</string>
     <string name="tv_result">Result :</string>
     <string name="text_alarm_set_up">Reminder alarm set up</string>
@@ -90,12 +90,12 @@
     <string name="batal_logout_text">Batal Logout</string>
     <string name="slogan1">Tanam tanpa tanah</string>
     <string name="slogan2">Raih hasil luar biasa</string>
-    <string name="hint_suhu"><![CDATA[5 => suhu <= 30]]></string>
-    <string name="error_message_suhu">Suhu harus berada dalam rentang 5 - 30</string>
+    <string name="hint_suhu">suhu kisaran 5 – 30 (C)</string>
+    <string name="error_message_suhu">Suhu harus berada dalam rentang 5 – 30</string>
     <string name="error_message_luas">Luas lahan harus minimal 0.05</string>
-    <string name="error_message_ph">ph harus berada dalam rentang 0 - 14</string>
-    <string name="error_message_kelembapan">Kelembapan harus berada dalam rentang 40 - 80</string>
-    <string name="error_message_penyinaran">Penyinaran harus berada dalam rentang 6 - 18</string>
+    <string name="error_message_ph">ph harus berada dalam rentang 0 – 14</string>
+    <string name="error_message_kelembapan">Kelembapan harus berada dalam rentang 40 – 80</string>
+    <string name="error_message_penyinaran">Penyinaran harus berada dalam rentang 6 – 18</string>
     <string name="title_calculate_page">Kalkulator Nutrisi</string>
     <string name="tv_title_calculator_PPM">Kalkulator PPM</string>
     <string name="tv_sub_title_PPM">Menghitung nutrisi yang dibutuhkan tanaman berdasarkan Part Per Million</string>
@@ -110,4 +110,5 @@
     <string name="tv_sub_title_Volume">Menghitung nutrisi yang dibutuhkan tanaman per Volume</string>
     <string name="tv_message_volume">Anda membutuhkan nutrisi dengan volume sebesar :</string>
     <string name="empty_string_alat_bahan">Tunggu update patch selanjutnya, untuk tanaman yang lebih banyak</string>
+    <string name="error_message_detail">Tunggu update patch selanjutnya, untuk informasi tanaman yang lebih banyak</string>
 </resources>

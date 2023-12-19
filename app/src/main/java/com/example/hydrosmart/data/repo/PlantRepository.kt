@@ -1,8 +1,12 @@
 package com.example.hydrosmart.data.repo
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.hydrosmart.R
 import com.example.hydrosmart.data.CalculatorMass
 import com.example.hydrosmart.data.CalculatorPPM
 import com.example.hydrosmart.data.CalculatorVolume
@@ -33,7 +37,7 @@ class PlantRepository(private val apiService: ApiService) {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    suspend fun getPlants() {
+    suspend fun getPlants(onRefreshComplete: () -> Unit, context: Context) {
         _isLoading.value = true
         try {
             val response = apiService.getPlants()
@@ -42,17 +46,27 @@ class PlantRepository(private val apiService: ApiService) {
                 _plant.value = response.body()
             }
         } catch (e: Exception) {
+            _isLoading.value = false
             Log.e(TAG1, "onFailure: ${e.message}")
+            showRefreshErrorDialog(onRefreshComplete, context)
+        } finally {
+            onRefreshComplete.invoke()
         }
     }
 
-    suspend fun getPlantDetail(plant: String) {
+    suspend fun getPlantDetail(
+        plant: String,
+        context: Context
+    ) {
         _isLoading.value = true
         try {
             val response = apiService.getPlantDetail(plant)
             _isLoading.value = false
             if (response.isSuccessful) {
                 _detailPlant.value = response.body()
+            } else {
+                Toast.makeText(context,
+                    context.getString(R.string.error_message_detail), Toast.LENGTH_LONG).show()
             }
         } catch (e: Exception) {
             Log.e(TAG2, "onFailure: ${e.message}")
@@ -103,6 +117,18 @@ class PlantRepository(private val apiService: ApiService) {
         } catch (e: Exception) {
             Log.e(TAG4, "onFailure: ${e.message}")
         }
+    }
+
+    private fun showRefreshErrorDialog(onRefreshComplete: () -> Unit, context: Context) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Error")
+            .setMessage("Failed to load plants. Do you want to try again?")
+            .setPositiveButton("Refresh") { _, _ ->
+                // Trigger refresh action
+                onRefreshComplete.invoke()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 
     companion object {

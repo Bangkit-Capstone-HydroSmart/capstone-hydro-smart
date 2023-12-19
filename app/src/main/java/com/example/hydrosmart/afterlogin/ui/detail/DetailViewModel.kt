@@ -1,5 +1,6 @@
 package com.example.hydrosmart.afterlogin.ui.detail
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.hydrosmart.data.networking.PlantResponse
@@ -11,6 +12,6 @@ class DetailViewModel(
     val detailPlant: LiveData<PlantResponse> = plantRepository.detailPlant
     val isLoading: LiveData<Boolean> = plantRepository.isLoading
 
-    suspend fun getPlantDetail(plant: String) = plantRepository.getPlantDetail(plant)
+    suspend fun getPlantDetail(plant: String, context: Context) = plantRepository.getPlantDetail(plant, context)
 
 }
