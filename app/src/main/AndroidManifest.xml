@@ -26,12 +26,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".afterlogin.ui.market.MarketActivity"
+            android:exported="false" />
+        <activity
             android:name=".afterlogin.ui.calculator.CalculateActivity"
             android:exported="false" />
         <activity
             android:name=".afterlogin.MainActivityAfter"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".afterlogin.ui.rekomendasi.RecommendActivity"
@@ -82,18 +85,20 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider>
-
-        <!-- Trigger Google Play services to install the backported photo picker module. -->
-        <!--suppress AndroidDomInspection -->
-        <service android:name="com.google.android.gms.metadata.ModuleDependencies"
+        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
+        <!-- suppress AndroidDomInspection -->
+        <service
+            android:name="com.google.android.gms.metadata.ModuleDependencies"
             android:enabled="false"
             android:exported="false"
             tools:ignore="MissingClass">
             <intent-filter>
                 <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
             </intent-filter>
-            <meta-data android:name="photopicker_activity:0:required" android:value="" />
+
+            <meta-data
+                android:name="photopicker_activity:0:required"
+                android:value="" />
         </service>
     </application>
 

@@ -8,7 +8,6 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.lifecycleScope
-import com.example.hydrosmart.R
 import com.example.hydrosmart.ViewModelFactory
 import com.example.hydrosmart.data.networking.PlantResponse
 import com.example.hydrosmart.data.pref.UserPreference
@@ -26,9 +25,7 @@ class Detailitem : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detailitem)
         binding = ActivityDetailitemBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

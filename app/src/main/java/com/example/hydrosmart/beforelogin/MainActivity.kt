@@ -55,6 +55,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getPlants(){
+        binding.swipeRefresh.setOnRefreshListener {
+            lifecycleScope.launch {
+                mainActivityViewModel.getPlant(this@MainActivity) {
+                    // Callback for handling refresh completion
+                    binding.swipeRefresh.isRefreshing = false
+                }
+            }
+        }
+        binding.swipeRefresh.isRefreshing = true
         lifecycleScope.launch {
             mainActivityViewModel.getPlant(this@MainActivity) {
                 binding.swipeRefresh.isRefreshing = true

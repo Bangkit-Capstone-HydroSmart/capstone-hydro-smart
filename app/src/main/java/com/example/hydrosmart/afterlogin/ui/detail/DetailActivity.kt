@@ -1,6 +1,7 @@
 package com.example.hydrosmart.afterlogin.ui.detail
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.lifecycleScope
 import com.example.hydrosmart.ViewModelFactory
+import com.example.hydrosmart.afterlogin.ui.market.MarketActivity
 import com.example.hydrosmart.data.networking.PlantResponse
 import com.example.hydrosmart.data.pref.UserPreference
 import com.example.hydrosmart.databinding.ActivityDetailBinding
@@ -55,8 +57,14 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
-        binding.fbBack.setOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
+        binding.apply {
+            fbBack.setOnClickListener {
+                onBackPressedDispatcher.onBackPressed()
+            }
+
+            fabStore.setOnClickListener {
+                startActivity(Intent(this@DetailActivity, MarketActivity::class.java))
+            }
         }
     }
 

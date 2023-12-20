@@ -111,4 +111,7 @@
     <string name="tv_message_volume">Anda membutuhkan nutrisi dengan volume sebesar :</string>
     <string name="empty_string_alat_bahan">Tunggu update patch selanjutnya, untuk tanaman yang lebih banyak</string>
     <string name="error_message_detail">Tunggu update patch selanjutnya, untuk informasi tanaman yang lebih banyak</string>
+    <string name="title_market">Paket Lengkap Hidroponik</string>
+    <string name="price_market">Rp. 70.000</string>
+    <string name="title_market_page">Beli sekarang!</string>
 </resources>
