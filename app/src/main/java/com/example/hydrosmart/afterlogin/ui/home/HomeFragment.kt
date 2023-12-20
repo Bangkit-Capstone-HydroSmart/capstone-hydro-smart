@@ -31,11 +31,11 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(na
 
 class HomeFragment : Fragment() {
 
-    private lateinit var _binding: FragmentHomeBinding
+    private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding
+    private val binding get() = _binding!!
     private lateinit var showLoading: ShowLoading
     private val homeViewModel by viewModels<HomeViewModel> {
         ViewModelFactory(UserPreference.getInstance(requireContext().dataStore), requireContext())
@@ -47,6 +47,14 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
+        super.onViewCreated(view, savedInstanceState)
 
         showLoading = ShowLoading()
 
@@ -54,8 +62,6 @@ class HomeFragment : Fragment() {
         setUpAction()
         showRecycleView()
         action()
-
-        return binding.root
     }
 
     private fun showRecycleView() {
@@ -66,22 +72,16 @@ class HomeFragment : Fragment() {
 
     private fun getPlants() {
         binding.swipeRefresh.setOnRefreshListener {
-            lifecycleScope.launch {
-                homeViewModel.getPlants(requireContext()) {
-                    // Callback for handling refresh completion
-                    binding.swipeRefresh.isRefreshing = false
-                }
-            }
+            refreshPlants()
         }
+        refreshPlants()
+    }
+
+    private fun refreshPlants() {
         binding.swipeRefresh.isRefreshing = true
         lifecycleScope.launch {
             homeViewModel.getPlants(requireContext()) {
-                binding.swipeRefresh.isRefreshing = true
-                lifecycleScope.launch {
-                    homeViewModel.getPlants(requireContext()) {
-                        binding.swipeRefresh.isRefreshing = false
-                    }
-                }
+                binding.swipeRefresh.isRefreshing = false
             }
         }
     }
@@ -144,6 +144,6 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = FragmentHomeBinding.inflate(layoutInflater)
+        _binding = null
     }
 }
