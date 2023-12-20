@@ -39,8 +39,8 @@ import java.util.Locale
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class ProfileFragment : Fragment() {
-    private lateinit var _binding: FragmentProfileBinding
-    private val binding get() = _binding
+    private var _binding: FragmentProfileBinding? = null
+    private val binding get() = _binding!!
     private val profileViewModel by viewModels<ProfileViewModel> {
         ViewModelFactory(UserPreference.getInstance(requireActivity().dataStore), requireActivity())
     }
@@ -52,7 +52,11 @@ class ProfileFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         if (savedInstanceState == null) {
             childFragmentManager
@@ -63,8 +67,6 @@ class ProfileFragment : Fragment() {
 
         action()
         requestStoragePermission()
-
-        return binding.root
     }
 
     private fun requestStoragePermission() {
@@ -235,6 +237,6 @@ class ProfileFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = FragmentProfileBinding.inflate(layoutInflater)
+        _binding = null
     }
 }
