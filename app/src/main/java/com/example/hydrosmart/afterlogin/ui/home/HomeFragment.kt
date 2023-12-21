@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ScrollView
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -35,7 +36,7 @@ class HomeFragment : Fragment() {
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+    private val binding get() = _binding
     private lateinit var showLoading: ShowLoading
     private val homeViewModel by viewModels<HomeViewModel> {
         ViewModelFactory(UserPreference.getInstance(requireContext().dataStore), requireContext())
@@ -45,9 +46,9 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View {
+    ): ScrollView? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(
@@ -66,26 +67,26 @@ class HomeFragment : Fragment() {
 
     private fun showRecycleView() {
         val layoutManager = LinearLayoutManager(requireContext())
-        binding.rvListPlant.layoutManager = layoutManager
+        binding?.rvListPlant?.layoutManager = layoutManager
 
     }
 
     private fun getPlants() {
-        binding.swipeRefresh.setOnRefreshListener {
+        binding?.swipeRefresh?.setOnRefreshListener {
             lifecycleScope.launch {
                 homeViewModel.getPlants(requireContext()) {
                     // Callback for handling refresh completion
-                    binding.swipeRefresh.isRefreshing = false
+                    binding?.swipeRefresh?.isRefreshing = false
                 }
             }
         }
-        binding.swipeRefresh.isRefreshing = true
+        binding?.swipeRefresh?.isRefreshing = true
         lifecycleScope.launch {
             homeViewModel.getPlants(requireContext()) {
-                binding.swipeRefresh.isRefreshing = true
+                binding?.swipeRefresh?.isRefreshing = true
                 lifecycleScope.launch {
                     homeViewModel.getPlants(requireContext()) {
-                        binding.swipeRefresh.isRefreshing = false
+                        binding?.swipeRefresh?.isRefreshing = false
                     }
                 }
             }
@@ -98,11 +99,11 @@ class HomeFragment : Fragment() {
                 getListPlant(it)
             }
             isLoading.observe(viewLifecycleOwner) {
-                showLoading.showLoading(it, binding.progressBar)
+                binding?.progressBar?.let { it1 -> showLoading.showLoading(it, it1) }
             }
         }
 
-        binding.apply {
+        binding?.apply {
             btRekomendasi.setOnClickListener {
                 val toRecomActivity = Intent(requireContext(), RecommendActivity::class.java)
                 startActivity(toRecomActivity)
@@ -117,7 +118,7 @@ class HomeFragment : Fragment() {
 
     private fun getListPlant(plant: List<String>) {
         val listPlant = ArrayList(plant)
-        binding.rvListPlant.adapter = PlantAdapter(listPlant) {
+        binding?.rvListPlant?.adapter = PlantAdapter(listPlant) {
             val toDetailPlant = Intent(requireContext(), DetailActivity::class.java)
             toDetailPlant.putExtra(DetailActivity.PLANTS, it)
             startActivity(toDetailPlant)
@@ -133,7 +134,7 @@ class HomeFragment : Fragment() {
                     FirebaseDatabase.getInstance().reference.child("users").child(uid).get()
                         .addOnCompleteListener {
                             if (isAdded) {
-                                binding.tvWelcome.text = getString(
+                                binding?.tvWelcome?.text = getString(
                                     R.string.welcome_message_home,
                                     it.result.child("name").value.toString()
                                 )

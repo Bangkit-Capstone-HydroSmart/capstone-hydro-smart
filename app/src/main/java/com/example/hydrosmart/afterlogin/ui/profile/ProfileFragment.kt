@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ScrollView
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -40,7 +41,7 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(na
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = _binding
     private val profileViewModel by viewModels<ProfileViewModel> {
         ViewModelFactory(UserPreference.getInstance(requireActivity().dataStore), requireActivity())
     }
@@ -49,10 +50,10 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View {
+    ): ScrollView? {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -117,7 +118,7 @@ class ProfileFragment : Fragment() {
         val uid: String? = FirebaseAuth.getInstance().currentUser?.uid
 
         profileViewModel.getUser().observe(viewLifecycleOwner) {
-            binding.apply {
+            binding?.apply {
                 uid?.let { uid ->
                     FirebaseDatabase.getInstance().reference.child("users").child(uid).get()
                         .addOnCompleteListener {
@@ -127,12 +128,14 @@ class ProfileFragment : Fragment() {
                         }
                 }
                 tvEmail.text = it.email.toString()
-                Glide.with(requireContext()).load(it.image?.toUri())
-                    .error(R.drawable.profile_user_default).into(binding.imgProfile)
+                binding?.imgProfile?.let { it1 ->
+                    Glide.with(requireContext()).load(it.image?.toUri())
+                        .error(R.drawable.profile_user_default).into(it1)
+                }
             }
         }
 
-        binding.imgAddPhoto.setOnClickListener {
+        binding?.imgAddPhoto?.setOnClickListener {
             AlertDialog.Builder(requireContext()).apply {
                 setTitle(getString(R.string.dialog_title))
                 setMessage(getString(R.string.dialog_message))
@@ -178,7 +181,7 @@ class ProfileFragment : Fragment() {
     private fun showImage() {
         currentImageUri?.let {
             Log.d(TAG, "showImage: $it")
-            binding.imgProfile.setImageURI(it)
+            binding?.imgProfile?.setImageURI(it)
             saveImageUriToDataStore(it.toString())
         }
     }
@@ -191,7 +194,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun action() {
-        binding.btLogout.setOnClickListener {
+        binding?.btLogout?.setOnClickListener {
             AlertDialog.Builder(requireActivity()).apply {
                 setTitle(getString(R.string.dialog_title_logout))
                 setMessage(getString(R.string.dialog_message_logout))
