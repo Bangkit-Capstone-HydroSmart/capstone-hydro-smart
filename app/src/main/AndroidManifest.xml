@@ -33,25 +33,23 @@
             android:exported="false" />
         <activity
             android:name=".afterlogin.MainActivityAfter"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".afterlogin.ui.rekomendasi.RecommendActivity"
             android:exported="false" />
         <activity
             android:name=".afterlogin.ui.detail.DetailActivity"
             android:exported="false" />
-        <activity
-            android:name=".beforelogin.ui.SplashActivity"
-            android:exported="true"
-            android:label="@string/title_activity_main_after">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".beforelogin.ui.detailbefore.Detailitem"
             android:exported="false" />
