@@ -72,16 +72,22 @@ class HomeFragment : Fragment() {
 
     private fun getPlants() {
         binding.swipeRefresh.setOnRefreshListener {
-            refreshPlants()
+            lifecycleScope.launch {
+                homeViewModel.getPlants(requireContext()) {
+                    // Callback for handling refresh completion
+                    binding.swipeRefresh.isRefreshing = false
+                }
+            }
         }
-        refreshPlants()
-    }
-
-    private fun refreshPlants() {
         binding.swipeRefresh.isRefreshing = true
         lifecycleScope.launch {
             homeViewModel.getPlants(requireContext()) {
-                binding.swipeRefresh.isRefreshing = false
+                binding.swipeRefresh.isRefreshing = true
+                lifecycleScope.launch {
+                    homeViewModel.getPlants(requireContext()) {
+                        binding.swipeRefresh.isRefreshing = false
+                    }
+                }
             }
         }
     }

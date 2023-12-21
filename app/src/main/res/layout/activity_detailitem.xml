@@ -16,13 +16,14 @@
             android:id="@+id/view"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/bg_top_menu_back"
+            android:background="@drawable/bg_top_menu_back_version_2"
             android:elevation="8dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fab_store"
             app:layout_constraintStart_toEndOf="@+id/fb_back"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -186,6 +187,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.499" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:importantForAccessibility="no"
+            app:layout_anchorGravity="bottom|end"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/shopping_bag" />
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"

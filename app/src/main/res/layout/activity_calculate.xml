@@ -284,7 +284,6 @@
                 android:fontFamily="@font/baloo_bhai_2_semibold"
                 android:hint="@string/hint_volume"
                 android:inputType="numberDecimal"
-                android:textColor="@color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 

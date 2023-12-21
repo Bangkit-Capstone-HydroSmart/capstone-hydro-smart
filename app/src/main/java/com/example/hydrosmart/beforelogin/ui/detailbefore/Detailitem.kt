@@ -1,6 +1,7 @@
 package com.example.hydrosmart.beforelogin.ui.detailbefore
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.viewModels
@@ -12,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.hydrosmart.R
 import com.example.hydrosmart.ViewModelFactory
+import com.example.hydrosmart.afterlogin.ui.market.MarketActivity
 import com.example.hydrosmart.data.networking.PlantResponse
 import com.example.hydrosmart.data.pref.UserPreference
 import com.example.hydrosmart.databinding.ActivityDetailitemBinding
@@ -55,8 +57,14 @@ class Detailitem : AppCompatActivity() {
                 showLoading.showLoading(it, binding.progressBar)
             }
         }
-        binding.fbBack.setOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
+        binding.apply {
+            fbBack.setOnClickListener {
+                onBackPressedDispatcher.onBackPressed()
+            }
+
+            fabStore.setOnClickListener {
+                startActivity(Intent(this@Detailitem, MarketActivity::class.java))
+            }
         }
     }
 
